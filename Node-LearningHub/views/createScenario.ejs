@@ -1,0 +1,20 @@
+<%- include("./partials/head.ejs") %> 
+<body>
+    <div class="create-scenario content">
+        <form action="/scenario/scenario" method="POST">
+          <label for="name">Scenario Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="type">Scenario Type:</label>
+          <input type="text" id="type" name="type" required>
+          <label for="startType">Start Type:</label>
+          <select name="startType" id="startType">
+            <option value="Automatic">Automatic</option>
+            <option value="Manual">Manual</option>
+          </select>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+          <button>Submit</button>
+        </form>
+      </div>
+    
+</body>

@@ -1,0 +1,54 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <script src="/socket.io/socket.io.js"></script>
+  
+
+  <div class="details content">
+    <h2><%= scenario.name %></h2>
+    <input type="hidden" id="scenario" name="scenario" value="<%= scenario.name %>"  >
+    <div class="content">
+      <p><%= scenario.type %></p>
+      <p><%= scenario.startType %></p>
+      <p><%= scenario.description %></p>
+    </div>
+    <a class="delete" data-doc="<%= scenario._id %>">
+      <img src="/trashcan.svg" alt="delete icon">
+    </a>
+  </div>
+<br>
+  <div class="sensors content">
+    <h2>SensorApps</h2>
+    <button id="list">Get List of connected Apps</button>
+    <div class="SensorAppsContent">
+      <div id="sensorAppsOutput"></div>
+    </div>
+  </div>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="test">Test Connections</button>
+  <div class="commands content">
+    <h2>Executed Commands</h2>
+    <div class="commandsContent">
+      <div id="commandsContentOutput"></div>
+    </div>
+  </div>
+
+  <script src="/websocketController.js"></script> 
+
+  <script>
+    const trashcan = document.querySelector('a.delete');
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/scenario/${trashcan.dataset.doc}`;
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+    
+  </script>
+</body>
+</html>

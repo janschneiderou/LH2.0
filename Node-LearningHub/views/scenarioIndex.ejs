@@ -1,0 +1,25 @@
+<%- include("./partials/head.ejs") %> 
+<body>
+
+    <div class="Scenarios content">
+        <h2>All Scenarios</h2>
+    
+        <% if (scenarios.length > 0) { %>
+          <% scenarios.forEach(scenario => { %>
+            <a class="single" href="/scenario/<%= scenario._id %>">
+              <h3 class="title"><%= scenario.name %></h3>
+              <p class="snippet"><%= scenario.description %></p>
+            </a>
+          <% }) %>
+        <% } else { %>
+          <p>There are no scenarios to display...</p>
+        <% } %>
+        
+      </div>
+      <br>
+      <br>
+      <ul>
+        <li><a href="/scenario/createScenario">New Scenario</a></li>
+      </ul>
+
+</body>

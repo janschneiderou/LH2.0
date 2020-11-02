@@ -1,0 +1,19 @@
+<%- include("./partials/head.ejs") %> 
+<body>
+   
+
+   
+    <div class="join-sensor content">
+        <form action="/sensor/sensorAppSubscribe" method="POST">
+          <label for="name">SensorApp Name:</label>
+          <input type="text" id="sensorApp" name="sensorApp" required>
+          <br>
+          <label for="type">Scenario:</label>
+          <input type="text" id="scenarioName" name="scenarioName" required>
+          <br>
+          <button>Submit</button>
+        </form>
+      </div>
+  
+    
+</body>

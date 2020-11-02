@@ -1,0 +1,20 @@
+<%- include("./partials/head.ejs") %> 
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <div id="Main-container">
+        <h2>sensor App Communication test</h2>
+       
+        <div id="chat-window">
+            <div id="output"></div>
+            <div id="feedback"></div>
+        </div>
+        <input type="hidden" id="scenario" name="scenario" value="<%= properties.scenarioName %>"  >
+        <input type="hidden" id="application" name="application" value="<%= properties.sensorApp %>"  >
+        <input id="handle" type="text" placeholder="Handle" />
+        <input id="message" type="text" placeholder="Message" />
+        <button id="send">Send</button>
+    </div>
+    <script src="/websocket.js"></script> 
+    
+</body>
